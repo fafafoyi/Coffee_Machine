@@ -7,9 +7,15 @@ class MoneyMachine:
         "dollar" : 1,
         "cent" : 0.50,
         "quarters" : 0.25,
-        "dimes" : 0.10
-
-
-
+        "dimes" : 0.10,
+        "nickels": 0.05
 
     }
+
+    def __init__(self):
+
+        self.profit = 0.0
+
+    def report(self):
+
+        print(f"Machine Profit: {self.currency}{self.profit:.2f}")

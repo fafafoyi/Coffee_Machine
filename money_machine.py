@@ -19,3 +19,18 @@ class MoneyMachine:
     def report(self):
 
         print(f"Machine Profit: {self.currency}{self.profit:.2f}")
+
+    def _process_coins(self):
+
+        print("Please insert coins.")
+        total = 0.0
+        for coin_name, coin_value in self.coin_values.items():
+            while True:
+                try:
+                    amount = int(input(f"How many {coin_name}s?: "))
+                    total += amount * coin_value
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter a whole number")
+
+        return total

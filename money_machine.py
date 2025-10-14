@@ -34,3 +34,25 @@ class MoneyMachine:
                     print("Invalid input. Please enter a whole number")
 
         return total
+
+    def make_payment(self, cost):
+        """Handles the payment process and checks if the transaction is successful."""
+
+        # Get the money from the customer
+        money_received = self._process_coins()
+
+        # Check if payment is sufficient
+        if money_received >= cost:
+            change = money_received - cost
+            # Round change to avoid floating point errors
+            change = round(change, 2)
+
+            # Update profit
+            self.profit += cost
+
+            print(f"✅ Success! Here is {self.currency}{change:.2f} in change.")
+            return True
+        else:
+            # Refund the money inserted
+            print(f"❌ Payment failed. Not enough money. {self.currency}{money_received:.2f} refunded.")
+            return False

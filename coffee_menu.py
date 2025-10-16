@@ -2,7 +2,7 @@ import sqlite3
 from unittest import expectedFailure
 
 
-class coffee_menu:
+class CoffeeMenu:
 
     def __init__(self, db_name = "coffee.db"):
         self.db_name = db_name
